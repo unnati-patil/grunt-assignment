@@ -1,2 +1,8 @@
 /node_modules
 /src/.idea
+/appveyor.yml
+/CONTRIBUTING.md
+/LICENSE-MIT
+/npm-debug.log
+/.gitignore
+/.npmignore

@@ -28,6 +28,16 @@ module.exports = function(grunt) {
         dest: 'build/combine.min.js'
       }
     },
+    imagemin: {                          // Task
+      dynamic: {                         // Another target
+        files: [{
+          expand: true,                  // Enable dynamic expansion
+          cwd: 'src/',                   // Src matches are relative to this path
+          src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
+          dest: '.'                  // Destination path prefix
+        }]
+      }
+    },
     smoosher: {
       all: {
         options: {
@@ -45,9 +55,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-html-smoosher');
 
   // Default task(s).
-  grunt.registerTask('default', ['concat', 'cssmin', 'uglify', 'smoosher']);
+  grunt.registerTask('default', ['concat', 'cssmin', 'uglify', 'imagemin', 'smoosher']);
 
 };
